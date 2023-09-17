@@ -10,19 +10,29 @@ services:
       - kanboard_plugins:/var/www/app/plugins
       - kanboard_ssl:/etc/nginx/ssl
     environment:
-      DATABASE_URL: mysql://kanboard:kanboard-secret@db/kanboard
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db/${MYSQL_DATABASE}
   db:
     image: mariadb:latest
     ports:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: kanboard
-      MYSQL_USER: kanboard
-      MYSQL_PASSWORD: kanboard-secret
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - db:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.1
+    links:
+      - db
+    ports:
+      - 8000:80
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 volumes:
   kanboard_data:
   kanboard_plugins:
