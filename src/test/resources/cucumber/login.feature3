@@ -1,0 +1,15 @@
+Feature: User is able to login
+
+  # Jira Xray plugin with integration of gherkin
+  @login @regression @smoke
+  Scenario Outline: User does login with valid credentials
+    Given I navigate to login page
+    When I set "username" field value "<Username>" on login page
+    And I set "password" field value "<Password>" on login page
+    And I click "Sign in" button
+    Then error message is not present on login page
+    Examples:
+      | Username | Password |
+      | admin1   | admin    |
+      | admin    | admin1   |
+      | admin    | admin    |

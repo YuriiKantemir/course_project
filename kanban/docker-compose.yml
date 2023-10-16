@@ -33,8 +33,22 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+  jenkins:
+    image: "jenkins/jenkins:lts"
+    container_name: "jenkins_lts"
+    volumes:
+      - jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - /usr/bin/docker:/usr/bin/docker
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    ports:
+      - 8080:8080
 volumes:
   kanboard_data:
   kanboard_plugins:
   kanboard_ssl:
   db:
+  jenkins:
