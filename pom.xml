@@ -19,7 +19,7 @@
         <log4j.version>2.20.0</log4j.version>
         <allure.version>2.23.0</allure.version>
         <mysql.connector.version>8.0.33</mysql.connector.version>
-        <selenium.version>4.12.1</selenium.version>
+        <selenium.version>4.4.0</selenium.version>
         <webdrivermanager.version>5.5.0</webdrivermanager.version>
         <selenide.version>6.18.0</selenide.version>
         <cucumber.version>7.14.0</cucumber.version>
