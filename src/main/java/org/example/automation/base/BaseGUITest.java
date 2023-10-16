@@ -45,9 +45,9 @@ public class BaseGUITest
         login.request()
                 .contentType(ContentType.JSON)
                 .body(JSONData.addUserToProject(projectId, userId))
-                .post()
+                .post();
                 //.then().log().body().toString();
-                .path("result").toString();
+                //.path("result").toString();
 
         this.projectId = projectId;
     }

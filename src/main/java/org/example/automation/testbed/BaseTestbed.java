@@ -18,6 +18,7 @@ abstract public class BaseTestbed
         options.addArguments("disable-infobars");
         options.addArguments("disable-default-apps");
         options.addArguments("disable-extensions");
+        options.addArguments("--remote-allow-origins=*");
         //options.addArguments("lang=en_US");
         options.setAcceptInsecureCerts(true);
         //options.addArguments("auto-open-devtools-for-tabs");
