@@ -13,7 +13,7 @@ public class Hooks {
     @Before
     public void before(Scenario scenario) {
         this.wd().get(String.format("http://%s:%s",
-                Config.HTTP_BASE_URL.value,
+                Config.HTTP_BASE_HOST.value,
                 Config.HTTP_BASE_PORT.value
         ));
         WebDriverRunner.setWebDriver(this.wd());

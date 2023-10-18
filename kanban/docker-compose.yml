@@ -46,6 +46,32 @@ services:
       - 8.8.4.4
     ports:
       - 8080:8080
+    networks:
+      - default
+
+  selenium-chrome:
+    image: "selenium/standalone-chrome:118.0"
+    container_name: "selenium-chrome"
+    shm_size: '2gb'
+    ports:
+      - 4444:4444
+      - 7900:7900
+    links:
+      - web-server
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  selenium-firefox:
+    image: "selenium/standalone-firefox:118.0"
+    container_name: "selenium-firefox"
+    shm_size: '2gb'
+    ports:
+      - 4445:4445
+      - 7901:7901
+    links:
+      - web-server
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 volumes:
   kanboard_data:
   kanboard_plugins:
