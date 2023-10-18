@@ -10,4 +10,9 @@ public class ProjectDataGenerator {
 
     static String projectName = "Test Project";
     public static String getUniqueProjectName(){return projectName+randNumber;}
+    public static String taskName = "New Task Test";
+    public static String getUniqueTaskName(){return taskName+randNumber;}
+    public static String taskComment = "New Comment";
+    public static String getUniqueComment(){return taskComment+randNumber;}
+
 }

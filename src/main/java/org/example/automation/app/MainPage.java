@@ -15,9 +15,6 @@ public class MainPage extends BaseSelenidePage {
     static final public SelenideElement addNewPrj = Selenide.$x("//div[@class='page-header']//a[contains(text(), 'New personal project')]");
     static final public SelenideElement taskDropdownMenu = Selenide.$x("//a[@class='dropdown-menu action-menu']");
     static final public SelenideElement inputTaskName = Selenide.$x("//input[@id='form-title']");
-//    static final public SelenideElement taskMenu = Selenide.$x("//a[@class='dropdown-menu-link-icon dropdown-menu']//i[@class='fa fa-caret-down']");  //div[@class='dropdown']//a[@class='dropdown-menu dropdown-menu-link-icon']//a[@strong[matches(., '#\d')]]
-//    static final public SelenideElement closeTaskButton = Selenide.$x("//ul[@class = 'dropdown-submenu-open']//a[@class='js-modal-confirm']//i[@class='fa fa-times fa-fw js-modal-confirm']");
-//    static final public SelenideElement taskMenu = Selenide.$x("//div[@class='dropdown']//a[@class='dropdown-menu dropdown-menu-link-icon']//a[@strong[matches(., '#\\d')]]");
     static final public SelenideElement closeTaskButton = Selenide.$x("//div[@class = 'sidebar sidebar-icons']//a[@class='js-modal-confirm']//i[@class='fa fa-times fa-fw js-modal-confirm']");
     static final public SelenideElement confirmCloseTaskButton = Selenide.$x("//button[@id='modal-confirm-button']");
     static final public SelenideElement taskStatus = Selenide.$x("//ul[@class='no-bullet']//span[contains(text(), 'closed')]");

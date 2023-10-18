@@ -35,7 +35,7 @@ public class BaseGUITest
 
         String projectId = login.request()
                 .contentType(ContentType.JSON)
-                .body(JSONData.createProject(userId))
+                .body(JSONData.createProject(userId,ProjectDataGenerator.getUniqueProjectName()))
                 .post()
                 .path("result").toString();
 
@@ -45,9 +45,10 @@ public class BaseGUITest
         login.request()
                 .contentType(ContentType.JSON)
                 .body(JSONData.addUserToProject(projectId, userId))
-                .post();
-                //.then().log().body().toString();
-                //.path("result").toString();
+                .post()
+                .then()
+                .extract()
+                .path("result").toString();
 
         this.projectId = projectId;
     }

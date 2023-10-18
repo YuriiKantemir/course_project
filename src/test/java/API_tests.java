@@ -8,6 +8,7 @@ import org.asynchttpclient.Request;
 import org.example.automation.Config;
 import org.example.automation.app.api.JSONData;
 import org.example.automation.app.api.Login;
+import org.example.automation.app.api.ProjectDataGenerator;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -56,7 +57,7 @@ public class API_tests {
     public void createProject(){
         String projectId = login.request()
                 .contentType(ContentType.JSON)
-                .body(JSONData.createProject(userId))
+                .body(JSONData.createProject(userId, ProjectDataGenerator.getUniqueProjectName()))
                 .post()
                 .then()
                 .statusCode(200)

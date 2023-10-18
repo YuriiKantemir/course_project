@@ -49,14 +49,14 @@ public class JSONData {
 
     }
 
-    static public String createProject(String userId) {
+    static public String createProject(String userId, String projectName) {
         JsonObject createUser = new JsonObject();
         createUser.add("jsonrpc", new JsonPrimitive("2.0"));
         createUser.add("method", new JsonPrimitive("createProject"));
         createUser.add("id", new JsonPrimitive(15));
 
         JsonObject params = new JsonObject();
-        params.add("name", new JsonPrimitive("Test Project"));
+        params.add("name", new JsonPrimitive(projectName));
         params.add("owner_id", new JsonPrimitive(userId));
 
         createUser.add("params", params);
